@@ -1,0 +1,7 @@
+setup.py
+RainbowPrint/RainbowPrint.py
+RainbowPrint/__init__.py
+RainbowPrint.egg-info/PKG-INFO
+RainbowPrint.egg-info/SOURCES.txt
+RainbowPrint.egg-info/dependency_links.txt
+RainbowPrint.egg-info/top_level.txt
