@@ -9,6 +9,7 @@ rp.rainbow_debug('test')
 rp.rainbow_errot('test')
 ```
 
-![rp2](https://github.com/Mrhs121/RainbowPrint/blob/main/pics/rp.png)
+![rp2](https://github.com/Mrhs121/RainbowPrint/blob/main/pics/rp2.png)
+
 使用 ``` rp.rainbow() ``` 查看所有颜色搭配
 ![rp](https://github.com/Mrhs121/RainbowPrint/blob/main/pics/rp.png)
