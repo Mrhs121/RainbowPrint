@@ -3,6 +3,7 @@ python 彩色打印文本
 
 # 安装
 ```
+git clone https://github.com/Mrhs121/RainbowPrint.git
 pip install ./dist/RainbowPrint-0.0.1-py3-none-any.whl
 ```
 
