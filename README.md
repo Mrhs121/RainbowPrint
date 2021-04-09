@@ -6,6 +6,10 @@ python 彩色打印文本
 git clone https://github.com/Mrhs121/RainbowPrint.git
 pip install ./dist/RainbowPrint-0.0.1-py3-none-any.whl
 ```
+## 或者使用pip安装
+```
+pip install RainbowPrint==0.0.1
+```
 
 # 使用方法
 ## 默认自带三种配色，info，debug，error
