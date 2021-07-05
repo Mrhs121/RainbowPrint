@@ -29,9 +29,9 @@ def test_print_table():
     table = []
     title = ['name','email','phone','address']
     row1 = ['huang','hs123@gmail.com',111,'jiangxi yichun']
-    row2 = ['jinxin','jinxin666@163.com','110119112','jiangsu jiangyin']
-    row3 = ['jinxin','jinxin666@163.com','110119112','jiangsu jiangyin']
-    row4 = ['jinxin','jinxin666@163.com','110119112','jiangsu jiangyin']
+    row2 = ['jinxin','afasdfasdfasf@163.com','110119112','Test Test Test Test Test Test']
+    row3 = ['fa','af@163.com','110119112','jiangsu']
+    row4 = ['jafjahf','jinxin666fafdsf66666@163.com','fafasdfsda','jiangsu']
 
     table.append(title)
     table.append(row1)

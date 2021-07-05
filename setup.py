@@ -6,7 +6,7 @@ import setuptools
 filepath = 'README.md'
 setuptools.setup(
     name='RainbowPrint',
-    version='2.0.2',
+    version='2.0.3',
     author='hs',
     author_email='huangshengtx@163.com',
     description=u'在终端中输出彩色文本',
