@@ -31,7 +31,7 @@ from RainbowPrint import RainbowPrint as rp
 print(rp.red('Hello World','Hello RainbowPrint'))
 ```
 
-![avatar](http://baidu.com/pic/doge.png)
+![pure](https://github.com/Mrhs121/RainbowPrint/blob/master/image/pure_color.png)
 
 
 
@@ -51,11 +51,14 @@ from RainbowPrint import RainbowPrint as rp
 rp.rainbow_print("RainbowPrint",text_color=rp.TextColor.GREEN,background=rp.BackgroundColor.BLUE)
 ```
 
+![back](https://github.com/Mrhs121/RainbowPrint/blob/master/image/back.png)
+
 The `rainbow_print` method takes 4 arguments:
 1. `data`, 
 1. `display_mode`, default value is `DisplayMode.TERMINAL_DEFAULT_SETTINGS`
 1. `text_color`,  default value is `TextColor.WHITE`
 1. `background`,  default value is `BackgroundColor.RED`
+
 
 ## Customize
    ...
@@ -88,6 +91,7 @@ The `rainbow_print` method takes 6 arguments:
 5. `rich_mode`, Default value is False. Whether to turn on multi-color mode for titles
 6. `hilight`, Default value is `[]`. Specifies the columns that need to be highlighted, such as `hilight=[2]`
 
+![table](https://github.com/Mrhs121/RainbowPrint/blob/master/image/table.png)
 
 
 
