@@ -1,5 +1,6 @@
 # RainbowPrint
 
+![PyPI](https://img.shields.io/pypi/v/RainbowPrint/2.0.2)
 ## Install via pip:
 `pip install RainbowPrint`
 
@@ -31,7 +32,7 @@ from RainbowPrint import RainbowPrint as rp
 print(rp.red('Hello World','Hello RainbowPrint'))
 ```
 
-![pure](https://github.com/Mrhs121/RainbowPrint/blob/master/image/pure_color.png)
+![pure](https://raw.githubusercontent.com/Mrhs121/RainbowPrint/master/image/pure_color.png)
 
 
 
@@ -51,7 +52,7 @@ from RainbowPrint import RainbowPrint as rp
 rp.rainbow_print("RainbowPrint",text_color=rp.TextColor.GREEN,background=rp.BackgroundColor.BLUE)
 ```
 
-![back](https://github.com/Mrhs121/RainbowPrint/blob/master/image/back.png)
+![back](https://raw.githubusercontent.com/Mrhs121/RainbowPrint/master/image/back.png)
 
 The `rainbow_print` method takes 4 arguments:
 1. `data`, 
@@ -91,7 +92,7 @@ The `rainbow_print` method takes 6 arguments:
 5. `rich_mode`, Default value is False. Whether to turn on multi-color mode for titles
 6. `hilight`, Default value is `[]`. Specifies the columns that need to be highlighted, such as `hilight=[2]`
 
-![table](https://github.com/Mrhs121/RainbowPrint/blob/master/image/table.png)
+![table](https://raw.githubusercontent.com/Mrhs121/RainbowPrint/master/image/table.png)
 
 
 

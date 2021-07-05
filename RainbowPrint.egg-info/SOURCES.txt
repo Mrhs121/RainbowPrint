@@ -1,3 +1,4 @@
+README.md
 setup.py
 RainbowPrint/RainbowPrint.py
 RainbowPrint/__init__.py
