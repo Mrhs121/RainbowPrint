@@ -35,7 +35,7 @@ def test_print_table():
     table.append(row2)
     table.append(row3)
     table.append(row4)
-    table.append(row5)
+    # table.append(row5)
     # rp.print_table(table,title,theme=rp.Theme.WHITE_RED,rich_mode=False)
     # rp.print_table(table,title,theme=rp.Theme.DEFAULT,rich_mode=True)
     # rp.print_table(table,title,theme=rp.Theme.BLUE_YELLOW,rich_mode=False)
