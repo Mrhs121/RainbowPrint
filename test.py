@@ -1,14 +1,17 @@
 from RainbowPrint import RainbowPrint as rp
+print('\n')
+rp.rainbow_print("Background color + Text clolor pattern Hello RainbowPrint",text_color=rp.TextColor.GREEN,background=rp.BackgroundColor.BLUE)
 
-# rp.rainbow_print("RainbowPrint",text_color=rp.TextColor.GREEN,background=rp.BackgroundColor.BLUE)
+rp.rainbow_print("Background color + Text clolor pattern Hello RainbowPrint",text_color=rp.TextColor.RED,background=rp.BackgroundColor.GREEN)
+
 #
 #
 # #
 # # rp.rainbow_error("Error")
 # # rp.rainbow_error("Error")
-# rp.error("Error")
-# rp.debug("debug")
-# rp.info("info")
+rp.error("Hello World")
+rp.debug("Hello World")
+rp.info("Hello World")
 # #
 # # rp.rainbow()
 # # # rp.help()
@@ -37,6 +40,7 @@ def test_print_table():
     table.append(row4)
 
     rp.print_table(table, title, theme=rp.Table_Theme.BLUE_YELLOW,hilight=[2])
-    rp.print_table(table,title,border_style=rp.BorderStyle.SINGLE_LINE.value,hilight=[2])
     rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value,hilight=[2])
+    rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value, rich_mode=True)
+
 test_print_table()
