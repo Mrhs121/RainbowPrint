@@ -152,6 +152,7 @@ class Table_Theme(Enum):
     DEFAULT = (default, default)
     BLUE = (blue, default)
     GREEN = (green, default)
+    RED = (red, default)
     RED_BLACK = (red, black)
     RED_WHITE = (red, white)
     GREEN_WHITE = (green, white)
@@ -175,7 +176,7 @@ class BorderStyle(Enum):
                    'end_line_end': '╯', 'mid': '┬', 'split_line_mid': '┼', 'end_line_mid': '┴', 'row_line': '─',
                    'clo_line': '│'}
 
-def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.DEFAULT, rich_mode=False, hilight=[],alignment=Alignment.LEFT):
+def print_table(table, title, theme=Table_Theme.RED, border_style=BorderStyle.DEFAULT, rich_mode=False, hilight=[],alignment=Alignment.LEFT):
     if hilight != []:
         assert max(hilight) < len(title), "hilight index must < the len of row"
     cloum_max = []
@@ -219,17 +220,27 @@ def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.
                 # else:
                 #     print(row_color(' ' + str(data) + ' ' * (str_len - len(str(data)))) + '  |', end='')
 
-    # print_spilt_line(start='╔', line='═', end='╗', mid='╦', row_color=theme.value[0])
-    print_spilt_line(start=border_style['start'], line=border_style['row_line'], end=border_style['end'],
+
+    def print_title():
+        print_spilt_line(start=border_style['start'], line=border_style['row_line'], end=border_style['end'],
                      mid=border_style['mid'], row_color=theme.value[0])
+
+        print(theme.value[0](border_style['clo_line']), end='')
+        print_row(title, theme.value[0], rich_mode, is_title=True, border_style=border_style, alignment=alignment)
+        print_spilt_line(start=border_style['split_line_start'], mid=border_style['split_line_mid'],
+                         line=border_style['row_line'], end=border_style['split_line_end'],
+                         row_color=theme.value[0])
+
+    print_title()
+
     for index, row in enumerate(table):
-        if index == 0:
-            print(theme.value[0](border_style['clo_line']), end='')
-            print_row(row, theme.value[0], rich_mode, is_title=True,border_style=border_style,alignment=alignment)
-            print_spilt_line(start=border_style['split_line_start'], mid=border_style['split_line_mid'],
-                             line=border_style['row_line'], end=border_style['split_line_end'],
-                             row_color=theme.value[0])
-        elif index == len(table) - 1:
+        # if index == 0:
+        #     print(theme.value[0](border_style['clo_line']), end='')
+        #     print_row(row, theme.value[0], rich_mode, is_title=True,border_style=border_style,alignment=alignment)
+        #     print_spilt_line(start=border_style['split_line_start'], mid=border_style['split_line_mid'],
+        #                      line=border_style['row_line'], end=border_style['split_line_end'],
+        #                      row_color=theme.value[0])
+        if index == len(table) - 1:
             # last split line
             print(theme.value[1](border_style['clo_line']), end='')
             print_row(row, theme.value[1], hilight=hilight,border_style=border_style,alignment=alignment)
@@ -242,13 +253,4 @@ def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.
             print_spilt_line(start=border_style['split_line_start'], mid=border_style['split_line_mid'],
                              end=border_style['split_line_end'],line=border_style['row_line'], row_color=theme.value[1])
 
-# def help():
-#     dispaly_mode = '''
-#      0	终端默认设置
-#      1	高亮显示
-#      4	使用下划线
-#      5	闪烁
-#      7	反白显示
-#      8	不可见
-#     '''
-#     print(dispaly_mode)
+

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: RainbowPrint
-Version: 2.0.3
+Version: 2.0.4
 Summary: 在终端中输出彩色文本
 Home-page: UNKNOWN
 Author: hs
@@ -8,9 +8,13 @@ Author-email: huangshengtx@163.com
 License: UNKNOWN
 Description: # RainbowPrint
         
-        ![PyPI](https://img.shields.io/pypi/v/RainbowPrint/2.0.2)
+        ![PyPI](https://img.shields.io/pypi/v/RainbowPrint/2.0.4)
         ## Install via pip:
         `pip install RainbowPrint`
+        
+        ## Update
+        remove `rich_mode` in `print_table`
+        
         
         ## Tutorial on how to use the RainbowPrint API
         
@@ -92,13 +96,12 @@ Description: # RainbowPrint
             rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value,hilight=[2])
         ```
         
-        The `rainbow_print` method takes 6 arguments:
+        The `print_table` method takes 5 arguments:
         1. `table`, Two-dimensional table
         2. `title`, Table tile
         3. `theme`, Default value is Table_Theme.GREEN, 
         4. `border_style`, Default value is BorderStyle.DEFAULT.value. There are three options: `ROUND`,`SINGLE_LINE`,`DEFAULT`
-        5. `rich_mode`, Default value is False. Whether to turn on multi-color mode for titles
-        6. `hilight`, Default value is `[]`. Specifies the columns that need to be highlighted, such as `hilight=[2]`
+        5. `hilight`, Default value is `[]`. Specifies the columns that need to be highlighted, such as `hilight=[2]`
         
         ![table](https://raw.githubusercontent.com/Mrhs121/RainbowPrint/master/image/table.png)
         
