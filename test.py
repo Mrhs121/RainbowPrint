@@ -29,7 +29,7 @@ def test_print_table():
     table = []
     title = ['name','email','phone','address']
     row1 = ['huang','hs123@gmail.com',111,'jiangxi yichun']
-    row2 = ['jinxin','afasdfasdfasf@163.com','110119112','Test Test Test Test Test Test']
+    row2 = ['jinxin','afasdfasdfasf@163.com','110119112','Test TestTest Test Test T']
     row3 = ['fa','af@163.com','110119112','jiangsu']
     row4 = ['jafjahf','jinxin666fafdsf66666@163.com','fafasdfsda','jiangsu']
 
@@ -41,6 +41,7 @@ def test_print_table():
 
     rp.print_table(table, title, theme=rp.Table_Theme.BLUE_YELLOW,hilight=[2])
     rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value,hilight=[2])
-    rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value, rich_mode=True)
+    rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value,alignment=rp.Alignment.RIGHT)
+    rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value, alignment=rp.Alignment.MID)
 
 test_print_table()

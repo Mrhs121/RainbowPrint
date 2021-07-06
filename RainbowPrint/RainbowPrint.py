@@ -158,6 +158,11 @@ class Table_Theme(Enum):
     WHITE_RED = (default, red)
     BLUE_YELLOW = (blue, yellow)
 
+@unique
+class Alignment(Enum):
+    LEFT = 1
+    RIGHT = 2
+    MID = 3
 
 class BorderStyle(Enum):
     DEFAULT = {'start': '╔', 'split_line_start': '╠', 'end': '╗', 'split_line_end': '╣', 'end_line_start': '╚',
@@ -170,7 +175,7 @@ class BorderStyle(Enum):
                    'end_line_end': '╯', 'mid': '┬', 'split_line_mid': '┼', 'end_line_mid': '┴', 'row_line': '─',
                    'clo_line': '│'}
 
-def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.DEFAULT.value, rich_mode=False, hilight=[]):
+def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.DEFAULT.value, rich_mode=False, hilight=[],alignment=Alignment.LEFT):
     if hilight != []:
         assert max(hilight) < len(title), "hilight index must < the len of row"
     cloum_max = []
@@ -187,21 +192,29 @@ def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.
             else:
                 print(row_color(line * (str_len + 3) + end), end='')
         print()
-
-    def print_row(row, row_color, rich_mode=False, is_title=False, hilight=[],border_style = BorderStyle.DEFAULT.value):
+    import math
+    def print_row(row, row_color, rich_mode=False, is_title=False, hilight=[],border_style = BorderStyle.DEFAULT.value,alignment=Alignment.LEFT):
         for index, data in enumerate(row):
             str_len = cloum_max[index]
             data_len = len(str(data))
+            space = ' ' * (str_len - data_len)
             if index in hilight and not is_title:
                 # data = red(data)
                 data = rainbow(data)
             if rich_mode and index != len(row) - 1:
-                print(rich(' ' + str(data) + ' ' * (str_len - data_len) + '  ') + border_style['clo_line'], end='')
+                print(rich(' ' + str(data) + space + '  ') + border_style['clo_line'], end='')
             elif rich_mode and index == len(row) - 1:
-                print(rich(' ' + str(data) + ' ' * (str_len - data_len) + '  ') + border_style['clo_line'], end='')
+                print(rich(' ' + str(data) + space + '  ') + border_style['clo_line'], end='')
             else:
                 # if is_title:
-                print(row_color(' ' + str(data) + ' ' * (str_len - data_len) + '  '+border_style['clo_line']), end='')
+                if alignment == Alignment.LEFT:
+                    print(row_color(' ' + str(data) + space + '  '+border_style['clo_line']), end='')
+                elif alignment == Alignment.RIGHT:
+                    print(row_color('  '+space + str(data) + ' ' +border_style['clo_line']), end='')
+                else:
+                    left_spce = ' ' * math.ceil((str_len - data_len)/2)
+                    right_space = ' ' * math.floor((str_len - data_len)/2)
+                    print(row_color(' ' + left_spce + str(data) + right_space + '  ' + border_style['clo_line']), end='')
                 # else:
                 #     print(row_color(' ' + str(data) + ' ' * (str_len - len(str(data)))) + '  |', end='')
 
@@ -211,20 +224,20 @@ def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.
     for index, row in enumerate(table):
         if index == 0:
             print(theme.value[0](border_style['clo_line']), end='')
-            print_row(row, theme.value[0], rich_mode, is_title=True,border_style=border_style)
+            print_row(row, theme.value[0], rich_mode, is_title=True,border_style=border_style,alignment=alignment)
             print_spilt_line(start=border_style['split_line_start'], mid=border_style['split_line_mid'],
                              line=border_style['row_line'], end=border_style['split_line_end'],
                              row_color=theme.value[0])
         elif index == len(table) - 1:
             # last split line
             print(theme.value[1](border_style['clo_line']), end='')
-            print_row(row, theme.value[1], hilight=hilight,border_style=border_style)
+            print_row(row, theme.value[1], hilight=hilight,border_style=border_style,alignment=alignment)
             print_spilt_line(start=border_style['end_line_start'], line=border_style['row_line'],
                              mid=border_style['end_line_mid'], end=border_style['end_line_end'],
                              row_color=theme.value[1])
         else:
             print(theme.value[1](border_style['clo_line']), end='')
-            print_row(row, theme.value[1], hilight=hilight,border_style=border_style)
+            print_row(row, theme.value[1], hilight=hilight,border_style=border_style,alignment=alignment)
             print_spilt_line(start=border_style['split_line_start'], mid=border_style['split_line_mid'],
                              end=border_style['split_line_end'],line=border_style['row_line'], row_color=theme.value[1])
 
