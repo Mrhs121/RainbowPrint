@@ -39,9 +39,11 @@ def test_print_table():
     table.append(row3)
     table.append(row4)
 
-    rp.print_table(table, title, theme=rp.Table_Theme.BLUE_YELLOW,hilight=[2])
-    rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value,hilight=[2])
-    rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value,alignment=rp.Alignment.RIGHT)
-    rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value, alignment=rp.Alignment.MID)
+    # rp.print_table(table, title, theme=rp.Table_Theme.BLUE_YELLOW,hilight=[2])
+    rp.print_table(table, title, border_style=rp.BorderStyle.DEFAULT,alignment=rp.Alignment.RIGHT)
+    rp.print_table(table, title, border_style=rp.BorderStyle.DEFAULT,alignment=rp.Alignment.MID)
+    rp.print_table(table, title, border_style=rp.BorderStyle.DEFAULT)
+    # rp.print_table(table, title, border_style=rp.BorderStyle.ROUND,alignment=rp.Alignment.RIGHT)
+    # rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value, alignment=rp.Alignment.MID)
 
 test_print_table()

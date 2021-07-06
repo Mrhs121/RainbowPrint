@@ -175,10 +175,11 @@ class BorderStyle(Enum):
                    'end_line_end': '╯', 'mid': '┬', 'split_line_mid': '┼', 'end_line_mid': '┴', 'row_line': '─',
                    'clo_line': '│'}
 
-def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.DEFAULT.value, rich_mode=False, hilight=[],alignment=Alignment.LEFT):
+def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.DEFAULT, rich_mode=False, hilight=[],alignment=Alignment.LEFT):
     if hilight != []:
         assert max(hilight) < len(title), "hilight index must < the len of row"
     cloum_max = []
+    border_style = border_style.value
     for cloum in range(0, len(table[0])):
         max_len = max([len(str(data[cloum])) for data in table])
         cloum_max.append(max_len)
@@ -201,20 +202,20 @@ def print_table(table, title, theme=Table_Theme.GREEN, border_style=BorderStyle.
             if index in hilight and not is_title:
                 # data = red(data)
                 data = rainbow(data)
-            if rich_mode and index != len(row) - 1:
-                print(rich(' ' + str(data) + space + '  ') + border_style['clo_line'], end='')
-            elif rich_mode and index == len(row) - 1:
-                print(rich(' ' + str(data) + space + '  ') + border_style['clo_line'], end='')
-            else:
+            # if rich_mode and index != len(row) - 1:
+            #     print(rich(' ' + str(data) + space + '  ') + border_style['clo_line'], end='')
+            # elif rich_mode and index == len(row) - 1:
+            #     print(rich(' ' + str(data) + space + '  ') + border_style['clo_line'], end='')
+            # else:
                 # if is_title:
-                if alignment == Alignment.LEFT:
-                    print(row_color(' ' + str(data) + space + '  '+border_style['clo_line']), end='')
-                elif alignment == Alignment.RIGHT:
-                    print(row_color('  '+space + str(data) + ' ' +border_style['clo_line']), end='')
-                else:
-                    left_spce = ' ' * math.ceil((str_len - data_len)/2)
-                    right_space = ' ' * math.floor((str_len - data_len)/2)
-                    print(row_color(' ' + left_spce + str(data) + right_space + '  ' + border_style['clo_line']), end='')
+            if alignment == Alignment.LEFT:
+                print(row_color(' ' + str(data) + space + '  '+border_style['clo_line']), end='')
+            elif alignment == Alignment.RIGHT:
+                print(row_color('  '+space + str(data) + ' ' +border_style['clo_line']), end='')
+            else:
+                left_spce = ' ' * math.ceil((str_len - data_len)/2)
+                right_space = ' ' * math.floor((str_len - data_len)/2)
+                print(row_color(' ' + left_spce + str(data) + right_space + '  ' + border_style['clo_line']), end='')
                 # else:
                 #     print(row_color(' ' + str(data) + ' ' * (str_len - len(str(data)))) + '  |', end='')
 
