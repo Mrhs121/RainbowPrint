@@ -95,6 +95,7 @@ The `print_table` method takes 5 arguments:
 3. `theme`, Default value is Table_Theme.GREEN, 
 4. `border_style`, Default value is BorderStyle.DEFAULT.value. There are three options: `ROUND`,`SINGLE_LINE`,`DEFAULT`
 5. `hilight`, Default value is `[]`. Specifies the columns that need to be highlighted, such as `hilight=[2]`
+6. `alignment`, Default value is `rp.Alignment.LEFT`,There are three options: `rp.Alignment.MID`,`rp.Alignment.LEFT`,`rp.Alignment.RIGTH`
 
 ![table](https://raw.githubusercontent.com/Mrhs121/RainbowPrint/master/image/table.png)
 
