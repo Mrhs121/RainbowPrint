@@ -72,6 +72,7 @@ The `rainbow_print` method takes 4 arguments:
 
 Beautify table print is supported starting with version 2.0 ^_^
 ```
+    from RainbowPrint import RainbowPrint as rp
     table = []
     title = ['name','email','phone','address']
     row1 = ['huang','hs123@gmail.com',111,'jiangxi yichun']
@@ -84,8 +85,8 @@ Beautify table print is supported starting with version 2.0 ^_^
     table.append(row3)
     table.append(row4)
     rp.print_table(table, title, theme=rp.Table_Theme.BLUE_YELLOW,hilight=[2])
-    rp.print_table(table,title,border_style=rp.BorderStyle.SINGLE_LINE.value,hilight=[2])
-    rp.print_table(table, title, border_style=rp.BorderStyle.ROUND.value,hilight=[2])
+    rp.print_table(table,title,border_style=rp.BorderStyle.SINGLE_LINE,hilight=[2])
+    rp.print_table(table, title, border_style=rp.BorderStyle.ROUND,hilight=[2])
 ```
 
 The `print_table` method takes 5 arguments:
